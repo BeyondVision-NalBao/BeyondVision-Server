@@ -47,6 +47,7 @@ public class RecordService {
                 .exerciseCount(exerciseRecordRequest.getExerciseCount())
                 .member(member)
                 .exercise(exercise)
+                .successCount(exerciseRecordRequest.getSuccessCount())
                 .build();
 
         recordRepository.save(record);

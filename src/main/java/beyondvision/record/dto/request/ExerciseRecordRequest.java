@@ -12,6 +12,7 @@ public class ExerciseRecordRequest {
 
     private Integer exerciseTime;
     private Integer exerciseCount;
+    private Integer successCount;
 
     @NotNull(message = "회원 id는 필수입니다.")
     private Long memberId;
