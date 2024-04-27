@@ -29,6 +29,9 @@ public class Routine extends BaseEntity {
 
     private String name;
 
+    @Column(columnDefinition = "boolean default false")
+    private boolean star;
+
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "member_id", nullable = false)
     private Member member;
@@ -55,8 +58,15 @@ public class Routine extends BaseEntity {
         this.routineDetails.forEach(detail -> detail.setRoutine(this));
     }
 
-    public void update(String name, List<RoutineDetail> routineDetails){
+    public void update(String name, List<RoutineDetail> routineDetails) {
         this.name = name;
         this.routineDetails = routineDetails;
+    }
+    public void star(Boolean star){
+        this.star = star;
+    }
+
+    public boolean isStar() {
+        return star;
     }
 }
