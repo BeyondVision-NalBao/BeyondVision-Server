@@ -19,4 +19,6 @@ public interface RecordRepository extends JpaRepository<Record, Long> {
     List<Record> getRecordByMemberIdBetween(@Param("memberId") final Long memberId);
 
     void deleteAllByMember(Member member);
+    List<Record> findRecordsByMemberId(final Long memberId);
+
 }
