@@ -35,4 +35,9 @@ public class ExerciseController {
     public ResponseEntity<?> getRandomExercise(){
         return ResponseEntity.ok().body(exerciseService.getRandomExercise());
     }
+
+    @GetMapping("/recommand/{memberId}")
+    public ResponseEntity<?> getRecommandExercise(@PathVariable("memberId") final Long memberId){
+        return ResponseEntity.ok().body(exerciseService.getRecommandExercise(memberId));
+    }
 }
