@@ -9,14 +9,12 @@ import beyondvision.record.domain.Record;
 import beyondvision.record.domain.repository.RecordRepository;
 import beyondvision.record.dto.request.ExerciseRecordRequest;
 import beyondvision.record.dto.response.ExerciseRecordResponse;
-import beyondvision.routine.domain.repository.RoutineRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-import static beyondvision.global.exeption.ExceptionCode.INVALID_EXERCISE;
 import static beyondvision.global.exeption.ExceptionCode.INVALID_MEMBER;
 
 @Service
@@ -47,6 +45,9 @@ public class RecordService {
                 .exerciseCount(exerciseRecordRequest.getExerciseCount())
                 .member(member)
                 .exercise(exercise)
+                .successCount(exerciseRecordRequest.getSuccessCount())
+                .caloriesBurnedSum(exerciseRecordRequest.getCaloriesBurnedSum())
+                .averageHeartRate(exerciseRecordRequest.getAverageHeartRate())
                 .build();
 
         recordRepository.save(record);

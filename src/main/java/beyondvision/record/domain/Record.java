@@ -34,6 +34,7 @@ public class Record extends BaseEntity {
     private Integer averageHeartRate;
 
     private Integer exerciseCount;
+    private Integer successCount;
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "member_id", nullable = false)
@@ -50,7 +51,8 @@ public class Record extends BaseEntity {
             final Integer averageHeartRate,
             final Integer exerciseCount,
             final Member member,
-            final Exercise exercise
+            final Exercise exercise,
+            final Integer successCount
     ) {
         this.exerciseTime = exerciseTime;
         this.caloriesBurnedSum = caloriesBurnedSum;
@@ -58,5 +60,6 @@ public class Record extends BaseEntity {
         this.exerciseCount = exerciseCount;
         this.member = member;
         this.exercise = exercise;
+        this.successCount = successCount;
     }
 }
