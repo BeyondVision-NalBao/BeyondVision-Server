@@ -40,4 +40,10 @@ public class RoutineController {
         routineService.deleteRoutine(memberId, routineId);
         return ResponseEntity.ok().build();
     }
+
+    @PostMapping(value="/routine/star/{memberId}/{routineId}")
+    public ResponseEntity<?> starRoutine(@PathVariable("memberId") final Long memberId, @PathVariable("routineId") final Long routineId){
+        routineService.starRoutine(memberId, routineId);
+        return ResponseEntity.ok().build();
+    }
 }

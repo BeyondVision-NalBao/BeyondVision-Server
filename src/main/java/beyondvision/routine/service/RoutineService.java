@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static beyondvision.global.exeption.ExceptionCode.INVALID_MEMBER;
@@ -108,6 +109,24 @@ public class RoutineService {
     private Member checkExistMember(final Long memberId) {
         return memberRepository.findMemberById(memberId)
                 .orElseThrow(() -> new BadRequestException(INVALID_MEMBER));
+    }
+
+    public void starRoutine(final Long memberId, final Long routineId){
+        List<Routine> routines = routineRepository.findRoutinesByMemberId(memberId);
+        for (Routine routine : routines){
+            if (!routine.isStar()){
+                routine.star(false);
+                routineRepository.save(routine);
+            }
+        }
+        Optional<Routine> optionalRoutine = routineRepository.findById(routineId);
+        if (optionalRoutine.isPresent()){
+            Routine starRoutine = optionalRoutine.get();
+            starRoutine.star(true);
+            routineRepository.save(starRoutine);
+        } else{
+            throw new RuntimeException("운동 루틴을 찾을 수 없습니다.");
+        }
     }
 
 

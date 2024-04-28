@@ -16,6 +16,7 @@ import static lombok.AccessLevel.PRIVATE;
 public class RoutineResponse {
     private final Long routineId;
     private final String routineName;
+    private final Boolean star;
     private final List<RoutineDetailResponse> routineDetails;
 
     public static RoutineResponse of(Routine routine) {
@@ -26,6 +27,7 @@ public class RoutineResponse {
         return new RoutineResponse(
                 routine.getId(),
                 routine.getName(),
+                routine.isStar(),
                 detailResponses
         );
     }
