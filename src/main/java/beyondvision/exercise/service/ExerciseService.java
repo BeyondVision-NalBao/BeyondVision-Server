@@ -78,9 +78,9 @@ public class ExerciseService {
         int minCount = Integer.MAX_VALUE;
         Record minRecord = null;
         for (Record record : records) {
-            if (record.getExerciseCount() < minCount) {
+            if (record.getSuccessCount() < minCount) {
                 minRecord = record;
-                minCount = record.getExerciseCount();
+                minCount = record.getSuccessCount();
             }
         }
         return exerciseRepository.findExerciseById(minRecord.getExercise().getId());
@@ -94,7 +94,7 @@ public class ExerciseService {
         Exercise recommandExercise = findMissingExercise(records);
         if (recommandExercise != null)
             return ExerciseDetailResponse.of(recommandExercise);
-        recommandExercise = findMissingExercise(records);
+        recommandExercise = findMinExercise(records);
         if (recommandExercise != null)
             return ExerciseDetailResponse.of(recommandExercise);
         else
