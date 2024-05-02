@@ -29,7 +29,7 @@ public class Record extends BaseEntity {
 
     private Integer exerciseTime;
 
-    private Integer caloriesBurnedSum;
+    private Double caloriesBurnedSum;
 
     private Integer averageHeartRate;
 
@@ -47,7 +47,7 @@ public class Record extends BaseEntity {
     @Builder
     public Record(
             final Integer exerciseTime,
-            final Integer caloriesBurnedSum,
+            final Double caloriesBurnedSum,
             final Integer averageHeartRate,
             final Integer exerciseCount,
             final Member member,

@@ -18,7 +18,7 @@ public class ExerciseRecordResponse {
     private final String exerciseName;
     private final LocalDateTime exerciseDate;
     private final Integer successCount;
-    private final Integer caloriesBurnedSum;
+    private final Double caloriesBurnedSum;
     private final Integer averageHeartRate;
 
     public static ExerciseRecordResponse of(final Record record) {
