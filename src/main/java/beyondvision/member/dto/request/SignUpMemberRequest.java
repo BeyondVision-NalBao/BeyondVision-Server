@@ -22,4 +22,5 @@ public class SignUpMemberRequest {
     private Integer age;
     private String gender;
     private Integer exerciseGoal;
+    private Integer weight;
 }
