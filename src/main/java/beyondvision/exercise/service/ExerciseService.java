@@ -66,10 +66,14 @@ public class ExerciseService {
                 missingIds.add(i);
         }
         Random random = new Random();
-        Long randomIndex = random.nextLong(missingIds.size());
-        long[] missingArray = missingIds.stream().mapToLong(Long::longValue).toArray();
-        Long targetExerciseId =  missingArray[Math.toIntExact(randomIndex)];
-        return exerciseRepository.findExerciseById(targetExerciseId);
+        if (missingIds.size() > 0) {
+            Long randomIndex = random.nextLong(missingIds.size());
+            long[] missingArray = missingIds.stream().mapToLong(Long::longValue).toArray();
+            Long targetExerciseId = missingArray[Math.toIntExact(randomIndex)];
+            return exerciseRepository.findExerciseById(targetExerciseId);
+        }
+        else
+            return null;
     }
 
     //적게 한 운동 찾기
