@@ -18,6 +18,7 @@ public class AuthResponse {
     private final Integer age;
     private final String gender;
     private final Integer exerciseGoal;
+    private final Integer weight;
     private final Boolean isNewMember;
 
     @Builder
@@ -30,6 +31,7 @@ public class AuthResponse {
             final Integer age,
             final String gender,
             final Integer exerciseGoal,
+            final Integer weight,
             final Boolean isNewMember
     ) {
         return new AuthResponse(
@@ -41,6 +43,7 @@ public class AuthResponse {
                 age,
                 gender,
                 exerciseGoal,
+                weight,
                 isNewMember
         );
     }

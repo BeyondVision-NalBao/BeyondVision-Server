@@ -28,6 +28,7 @@ public class AuthService {
                 .age(signUpMemberRequest.getAge())
                 .gender(signUpMemberRequest.getGender())
                 .exerciseGoal(signUpMemberRequest.getExerciseGoal())
+                .weight(signUpMemberRequest.getWeight())
                 .build());
 
         return AuthResponse.builder()
@@ -40,6 +41,7 @@ public class AuthService {
                 .age(member.getAge())
                 .gender(member.getGender())
                 .exerciseGoal(member.getExerciseGoal())
+                .weight(member.getWeight())
                 .build();
     }
 }

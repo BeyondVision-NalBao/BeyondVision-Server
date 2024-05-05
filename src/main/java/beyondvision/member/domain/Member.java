@@ -45,6 +45,8 @@ public class Member extends BaseEntity {
 
     private Integer exerciseGoal;
 
+    private Integer weight;
+
     @OneToMany(mappedBy = "member")
     private List<Routine> routines = new ArrayList<>();
 
@@ -59,7 +61,8 @@ public class Member extends BaseEntity {
             final String profileImageUrl,
             final Integer age,
             final String gender,
-            final Integer exerciseGoal
+            final Integer exerciseGoal,
+            final Integer weight
 
     ) {
         this.name = name;
@@ -69,6 +72,7 @@ public class Member extends BaseEntity {
         this.age = age;
         this.gender = gender;
         this.exerciseGoal = exerciseGoal;
+        this.weight = weight;
     }
 
     public void updateMember(final Integer exerciseGoal) {
